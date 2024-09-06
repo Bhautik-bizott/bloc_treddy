@@ -1,24 +1,44 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:bloc_traddy/data/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await initializeService();
+  final savedThemeMode = await AdaptiveTheme.getThemeMode();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  // Loading();
+  runApp(ScreenUtilInit(
+    designSize: const Size(375, 812),
+    ensureScreenSize: true,
+    builder: (_, child) {
+      return AdaptiveTheme(
+        light: ThemeData(
+          useMaterial3: true,
+          brightness: Brightness.light,
+          primaryColor: AppColors.backgroundColor,
+        ),
+        dark: ThemeData(
+          useMaterial3: true,
+          brightness: Brightness.dark,
+          primaryColor: AppColors.textBlackColor,
+        ),
+        initial: savedThemeMode ?? AdaptiveThemeMode.light,
+        builder: (theme, darkTheme) => MaterialApp(
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        ),
+      );
+    },
+  ));
 }
 
 class MyHomePage extends StatefulWidget {
