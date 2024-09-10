@@ -17,38 +17,38 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   // Loading();
-  runApp(BlocProvider(
-    create: (context) => AuthBloc(),
-    child: ScreenUtilInit(
-      designSize: const Size(375, 812),
-      ensureScreenSize: true,
-      builder: (_, child) {
-        return AdaptiveTheme(
-          light: ThemeData(
-            useMaterial3: true,
-            brightness: Brightness.light,
-            primaryColor: AppColors.backgroundColor,
-          ),
-          dark: ThemeData(
-            useMaterial3: true,
-            brightness: Brightness.dark,
-            primaryColor: AppColors.textBlackColor,
-          ),
-          initial: savedThemeMode ?? AdaptiveThemeMode.light,
-          builder: (theme, darkTheme) =>
-              MaterialApp(
-                title: 'Flutter Demo',
-                debugShowCheckedModeBanner: false,
-                navigatorKey: NavigationService.navigatorKey,
-                theme: ThemeData(
-                  colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                  useMaterial3: true,
-                ),
-                home: AuthPage(),
+  runApp(
+    BlocProvider(
+      create: (context) => LandingPageBloc(),
+      child: ScreenUtilInit(
+        designSize: const Size(375, 812),
+        ensureScreenSize: true,
+        builder: (_, child) {
+          return AdaptiveTheme(
+            light: ThemeData(
+              useMaterial3: true,
+              brightness: Brightness.light,
+              primaryColor: AppColors.backgroundColor,
+            ),
+            dark: ThemeData(
+              useMaterial3: true,
+              brightness: Brightness.dark,
+              primaryColor: AppColors.textBlackColor,
+            ),
+            initial: savedThemeMode ?? AdaptiveThemeMode.light,
+            builder: (theme, darkTheme) => MaterialApp(
+              title: 'Traddy',
+              debugShowCheckedModeBanner: false,
+              navigatorKey: NavigationService.navigatorKey,
+              theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                useMaterial3: true,
               ),
-        );
-      },
+              home: const BottomBarPage(),
+            ),
+          );
+        },
+      ),
     ),
-  ));
+  );
 }
-

@@ -1,5 +1,5 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:bloc_traddy/pages/archived_page/archived_page.dart';
+import 'package:bloc_traddy/pages/archived_page/ui/archived_page.dart';
 import 'package:bloc_traddy/pages/leaderboard_page/leaderboard_page.dart';
 import 'package:bloc_traddy/pages/market_page/ui/market_page.dart';
 import 'package:bloc_traddy/pages/position_page/position_page.dart';
