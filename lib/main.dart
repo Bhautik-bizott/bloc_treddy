@@ -1,5 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:bloc_traddy/data/app_colors.dart';
+import 'package:bloc_traddy/pages/auth_page/bloc/auth_bloc.dart';
+import 'package:bloc_traddy/pages/auth_page/ui/auth_page.dart';
 import 'package:bloc_traddy/pages/bottom_bar/bloc/bottom_bar_bloc.dart';
 import 'package:bloc_traddy/pages/bottom_bar/ui/bottom_bar_page.dart';
 import 'package:bloc_traddy/utils/navigation_service.dart';
@@ -16,7 +18,7 @@ void main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   // Loading();
   runApp(BlocProvider(
-    create: (context) => LandingPageBloc(),
+    create: (context) => AuthBloc(),
     child: ScreenUtilInit(
       designSize: const Size(375, 812),
       ensureScreenSize: true,
@@ -42,7 +44,7 @@ void main() async {
                   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                   useMaterial3: true,
                 ),
-                home: BottomBarPage(),
+                home: AuthPage(),
               ),
         );
       },

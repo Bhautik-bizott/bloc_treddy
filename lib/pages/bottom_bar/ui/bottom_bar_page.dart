@@ -1,7 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:bloc_traddy/pages/archived_page/archived_page.dart';
 import 'package:bloc_traddy/pages/leaderboard_page/leaderboard_page.dart';
-import 'package:bloc_traddy/pages/market_page/market_page.dart';
+import 'package:bloc_traddy/pages/market_page/ui/market_page.dart';
 import 'package:bloc_traddy/pages/position_page/position_page.dart';
 import 'package:bloc_traddy/pages/trades_page/trades_page.dart';
 import 'package:flutter/material.dart';
@@ -71,12 +71,7 @@ class BottomBarPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<LandingPageBloc>(context);
     return BlocConsumer<LandingPageBloc, LandingPageState>(
-      listener: (context, state) {
-        // TODO: implement listener
-
-        print("dsjhbfhjsbdfhjsbdf");
-        print(state.tabIndex);
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
             body: bottomNavScreen[state.tabIndex],
@@ -99,7 +94,6 @@ class BottomBarPage extends StatelessWidget {
                 selectedCallback: (index) {
                   selectedPos = index ?? 2;
                   BlocProvider.of<LandingPageBloc>(context).add(TabChange(tabIndex: selectedPos));
-                  // bloc.add(TabChange(tabIndex: selectedPos ?? 2));
                 },
               ),
             ));
