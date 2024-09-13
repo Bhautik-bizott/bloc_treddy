@@ -1,11 +1,12 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:bloc_traddy/constant/constant.dart';
-import 'package:bloc_traddy/data/app_colors.dart';
-import 'package:bloc_traddy/data/app_images.dart';
 import 'package:bloc_traddy/utils/enum.dart';
 import 'package:bloc_traddy/widget/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../constant/app_colors.dart';
+import '../constant/app_images.dart';
 
 class CommonAppBar extends StatefulWidget {
   final child;

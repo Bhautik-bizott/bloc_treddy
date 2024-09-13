@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant/app_colors.dart';
-import '../data/app_images.dart';
+import '../constant/app_images.dart';
 import 'app_text.dart';
 
 customButton(

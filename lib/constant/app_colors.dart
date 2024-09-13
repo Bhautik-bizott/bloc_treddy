@@ -36,15 +36,10 @@ class AppColors {
   static Color borderColor = const Color(0xFFFFFF33);
   static Color whiteColor = const Color(0xffFFFFFF);
 
-
   static Color positionBYLimitBG = const Color(0xff5BD176);
-
 
   static Color leaderBoardGradientRank1 = const Color(0xffE5B342);
   static Color leaderBoardGradientRank2 = const Color(0xffF8C95E);
-
-
-
 
   /// payment type color
   static Color WithdrawalBGColor = const Color(0xffFF6262);

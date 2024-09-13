@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../constant/app_colors.dart';
-import '../../../data/app_images.dart';
+import '../../../constant/app_images.dart';
 import '../../../utils/enum.dart';
 import '../../../widget/app_text.dart';
 import '../../../widget/app_text_field.dart';
@@ -35,13 +35,13 @@ class AuthPage extends StatelessWidget {
                 padding: EdgeInsets.only(top: 40.h),
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [
-                        AppColors.commonColorBlue,
-                        AppColors.commonColorGreen,
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    )),
+                  colors: [
+                    AppColors.commonColorBlue,
+                    AppColors.commonColorGreen,
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
@@ -70,8 +70,7 @@ class AuthPage extends StatelessWidget {
                         child: TabBar(
                           // controller: controller.tabController,
                           dividerHeight: 0.0,
-                          unselectedLabelColor:
-                          AdaptiveTheme.of(context).mode.isDark ? AppColors.white.withOpacity(0.60) : AppColors.textBlackColor.withOpacity(0.70),
+                          unselectedLabelColor: AdaptiveTheme.of(context).mode.isDark ? AppColors.white.withOpacity(0.60) : AppColors.textBlackColor.withOpacity(0.70),
                           labelColor: AppColors.white,
                           labelStyle: TextStyle(
                             color: AppColors.textBlackColor.withOpacity(0.70),
@@ -119,10 +118,11 @@ class AuthPage extends StatelessWidget {
                                 if (userNameController.text.isEmpty) {
                                   const snackBar = SnackBar(
                                       duration: Duration(seconds: 1),
-                                      content:
-                                      Text("Please, Enter Your Email", style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Medium')),
+                                      content: Text("Please, Enter Your Username", style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Medium')),
                                       backgroundColor: Colors.red);
                                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                } else {
+                                  BlocProvider.of<AuthBloc>(context).add(LoginButtonClickedEvent());
                                 }
                               },
                               fontSize: 16.sp,
@@ -149,7 +149,7 @@ class AuthPage extends StatelessWidget {
                                     SizedBox(height: 8.h),
                                     AppText(
                                       'This will be visible to all users in leaderboard',
-                                      color: AdaptiveTheme.of(context).mode.isDark ? AppColors.white :AppColors.textBlackColor.withOpacity(0.80),
+                                      color: AdaptiveTheme.of(context).mode.isDark ? AppColors.white : AppColors.textBlackColor.withOpacity(0.80),
                                       fontSize: 12.sp,
                                       fontStyle: FontStyle.italic,
                                       fontFamily: FontFamily.LATOMEDIUM.type,
@@ -167,6 +167,7 @@ class AuthPage extends StatelessWidget {
                               fontFamily: FontFamily.LATOBOLD.type,
                               color: AppColors.white,
                               onTap: () {
+                                BlocProvider.of<AuthBloc>(context).add(SignUpButtonClickedEvent());
                               },
                               fontSize: 16.sp,
                               borderRadius: 8.r,

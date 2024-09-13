@@ -1,10 +1,8 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:bloc_traddy/data/app_colors.dart';
-import 'package:bloc_traddy/utils/enum.dart';
 import 'package:bloc_traddy/widget/common_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../constant/app_strings.dart';
+import '../../../constant/app_colors.dart';
 
 class ArchivedPage extends StatelessWidget {
   const ArchivedPage({super.key});

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../constant/app_colors.dart';
-import '../../../data/app_images.dart';
+import '../../../constant/app_images.dart';
 import '../../../utils/enum.dart';
 import '../../../utils/navigation_service.dart';
 import '../../../widget/bottomBarWidget.dart';

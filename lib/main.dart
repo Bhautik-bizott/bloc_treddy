@@ -1,5 +1,4 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:bloc_traddy/data/app_colors.dart';
 import 'package:bloc_traddy/pages/auth_page/bloc/auth_bloc.dart';
 import 'package:bloc_traddy/pages/auth_page/ui/auth_page.dart';
 import 'package:bloc_traddy/pages/bottom_bar/bloc/bottom_bar_bloc.dart';
@@ -10,6 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'constant/app_colors.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await initializeService();
@@ -19,7 +20,7 @@ void main() async {
   // Loading();
   runApp(
     BlocProvider(
-      create: (context) => LandingPageBloc(),
+      create: (context) => AuthBloc(),
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         ensureScreenSize: true,
@@ -44,7 +45,7 @@ void main() async {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                 useMaterial3: true,
               ),
-              home: const BottomBarPage(),
+              home: const AuthPage(),
             ),
           );
         },
